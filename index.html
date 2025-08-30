@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Try out my Converter Tools">
+        <meta name="keywords" content="Converter, convert, length, multiple, tools, bmi, temperature,">
+        <link rel="stylesheet" href="styles.css">
+        <title>My Multiple Tools</title>
+    </head>
+    <body>
+        <header>
+            <h1>Convert Tools</h1>
+            <p>A simple collection of tools</p>
+
+            <nav>
+                <label for="converterSelect">Converter:</label>
+                <select id="converterSelect">
+                    <option value="">-- Select Converter --</option>
+                    <option value="#temperature">Temperature Converter</option>
+                    <option value="#length">Length Converter</option>
+                    <option value="#time">Time Converter</option>
+                    <option value="#area">Area Converter</option>
+                </select>
+
+                <label for="healthSelect">Health:</label>
+                <select id="healthSelect">
+                    <option value="">-- Select Health Tool --</option>
+                    <option value="#bmi">BMI Calculator</option>
+                </select>
+
+                <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+            </nav>
+
+        </header>
+        <main>
+            <h2 id="converter">Converter</h2><hr>
+            <section id="temperature">
+                <h2 class="temperature-converter">Temperature Converter</h2>
+                <label for="celsius">Celsius:</label>
+                <input id="celsius" type="number" placeholder="Enter Celsius" oninput="celsiusToFahrenheit()">°C
+
+                <label for="fahrenheit">Fahrenheit:</label>
+                <input id="fahrenheit" type="number" placeholder="Enter Fahrenheit" oninput="fahrenheitToCelsius()">°F
+            </section>
+            <section id="length">
+                <h2 class="length-converter">Length Converter</h2>
+                <label for="lengthInput">Enter Length:</label>
+                <input id="lengthInput" type="number" placeholder="Enter value">
+
+                <label for="fromUnit">From:</label>
+                <select id="fromUnit">
+                    <option value="m">Meters</option>
+                    <option value="cm">Centimeters</option>
+                    <option value="mm">Millimeters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="in">Inches</option>
+                    <option value="ft">Feet</option>
+                    <option value="yd">Yards</option>
+                    <option value="mi">Miles</option>
+                 </select>
+
+                <label for="toUnit">To:</label>
+                <select id="toUnit">
+                    <option value="m">Meters</option>
+                    <option value="cm">Centimeters</option>
+                    <option value="mm">Millimeters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="in">Inches</option>
+                    <option value="ft">Feet</option>
+                    <option value="yd">Yards</option>
+                    <option value="mi">Miles</option>
+                </select>
+
+                <button onclick="convertLength()">Convert</button>
+                <p id="lengthResult"></p>
+            </section>
+            <section id="time">
+                <h2 class="time-converter">Time Converter</h2>
+                <label for="days">Days:</label>
+                <input id="days" type="number" placeholder="Enter a value">d
+
+                <label for="hours">Hours:</label>
+                <input id="hours" type="number" placeholder="Enter a value">h
+
+                <label for="minutes">Minutes:</label>
+                <input id="minutes" type="number" placeholder="Enter a value">m
+
+                <label for="seconds">Seconds:</label>
+                <input id="seconds" type="number" placeholder="Enter a value">s
+
+                <label for="ms">Milliseconds:</label>
+                <input id="ms" type="number" placeholder="Enter a value">ms
+            </section>
+            <section id="area">
+                <h2>Area Converter</h2>
+                <label for="areaInput">Enter value:</label>
+                <input type="number" id="areaInput" placeholder="Enter value">
+
+                <label for="areaFromUnit">From:</label>
+                <select id="areaFromUnit">
+                    <option value="m2">Square Meters</option>
+                    <option value="cm2">Square Centimeters</option>
+                    <option value="mm2">Square Millimeters</option>
+                    <option value="km2">Square Kilometers</option>
+                    <option value="ft2">Square Feet</option>
+                    <option value="in2">Square Inches</option>
+                    <option value="yd2">Square Yards</option>
+                    <option value="mi2">Square Miles</option>
+                </select>
+
+                <label for="areaToUnit">To:</label>
+                <select id="areaToUnit">
+                    <option value="m2">Square Meters</option>
+                    <option value="cm2">Square Centimeters</option>
+                    <option value="mm2">Square Millimeters</option>
+                    <option value="km2">Square Kilometers</option>
+                    <option value="ft2">Square Feet</option>
+                    <option value="in2">Square Inches</option>
+                    <option value="yd2">Square Yards</option>
+                    <option value="mi2">Square Miles</option>
+                </select>
+
+                <button onclick="convertArea()">Convert</button>
+                <p id="areaResult"></p>
+            </section>
+
+            <section id="volume">
+                <h2>Volume Converter</h2>
+                <label for="volumeInput">Enter value:</label>
+                <input type="number" id="volumeInput" placeholder="Enter value">
+
+                <label for="volumeFromUnit">From:</label>
+                <select id="volumeFromUnit">
+                    <option value="m3">Cubic Meters</option>
+                    <option value="cm3">Cubic Centimeters</option>
+                    <option value="mm3">Cubic Millimeters</option>
+                    <option value="l">Liters</option>
+                    <option value="ml">Milliliters</option>
+                    <option value="ft3">Cubic Feet</option>
+                    <option value="in3">Cubic Inches</option>
+                    <option value="yd3">Cubic Yards</option>
+                    <option value="gal">US Gallons</option>
+                </select>
+
+                <label for="volumeToUnit">To:</label>
+                <select id="volumeToUnit">
+                    <option value="m3">Cubic Meters</option>
+                    <option value="cm3">Cubic Centimeters</option>
+                    <option value="mm3">Cubic Millimeters</option>
+                    <option value="l">Liters</option>
+                    <option value="ml">Milliliters</option>
+                    <option value="ft3">Cubic Feet</option>
+                    <option value="in3">Cubic Inches</option>
+                    <option value="yd3">Cubic Yards</option>
+                    <option value="gal">US Gallons</option>
+                </select>
+
+                <button onclick="convertVolume()">Convert</button>
+                <p id="volumeResult"></p>
+            </section><hr>
+            <h2 id="health">Health Tools</h2><hr>
+            <section id="bmi">
+                <h2 class="bmi-calculator">BMI Calculator</h2>
+                <label for="weight">Weight:</label>
+                <input id="weight" type="number" placeholder="Enter weight">kg
+
+                <label for="height">Height:</label>
+                <input id="height" type="number" placeholder="Enter height">cm
+
+                <button onclick="calculateBMI()">Calculate</button>
+                <p id="bmiResult"></p>
+            </section>
+        </main>
+        <footer>
+            <p>© 2025 My Tools</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
